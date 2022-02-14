@@ -1,8 +1,9 @@
-#include<iostream>
-
-using namespace std;
+#include <iostream>
+#include <functional>
 
 int main() {
-    cout << "hello";
+    [out = std::ref(std::cout << "hello")]() {
+        out.get() << " \n";
+    }();
     return 0;
 }
