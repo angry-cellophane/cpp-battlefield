@@ -1,9 +1,12 @@
 #include <iostream>
-#include <functional>
+#include <vector>
+#include <algorithm>
 
 int main() {
-    [out = std::ref(std::cout << "hello")]() {
-        out.get() << " \n";
-    }();
+    std::vector<int> v = {1,2,3,4,5};
+    if (auto e = std::find(v.begin(), v.end(), 3); e != v.end()) {
+        std::cout << "found";
+    }
+
     return 0;
 }
